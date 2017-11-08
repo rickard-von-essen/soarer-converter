@@ -21,15 +21,15 @@
 </div>
 
 
-<h3><a name="cpus">CPUs</a></h3>
+<h3 id="cpus">CPUs</h3>
 <hr>
 <p>The firmware has been compiled for the following CPUs, listed roughly in order of preference:</p>
 <p><table>
 <tr><th>CPU</th><th>Known breakout board(s)</th></tr>
 <tr><td>ATmega32U4</td><td><a href=http://www.pjrc.com/store/teensy.html>Teensy 2.0</a>, <a href=http://www.adafruit.com/products/296>Adafruit Atmega32u4 Breakout Board</a></td></tr>
 <tr><td>AT90USB1286</td><td><a href=http://www.pjrc.com/store/teensypp.html>Teensy++ 2.0</a></td></tr>
-<tr><td>AT90USB646 <span class="versioninfo">v1.0+</span></td><td>Teensy++ (no longer available)</td></tr>
-<tr><td>ATmega16U4 <span class="versioninfo">v1.0+</span></td><td>???</td></tr>
+<tr><td>AT90USB646 <a href=./history.html#v100><span class="versioninfo">v1.0+</span></a></td><td>Teensy++ (no longer available)</td></tr>
+<tr><td>ATmega16U4 <a href=./history.html#v100><span class="versioninfo">v1.0+</span></a></td><td>???</td></tr>
 </table></p>
 
 <p>Make sure you pick the right .hex file for your dev board!</p>
@@ -41,7 +41,7 @@
 <p><i>Note: the ATmega16U4 build is very close to 16KB in size, and probably does not leave room for a USB bootloader on the chip.<br/>
 So, ATmega16U4 based breakout boards are not recommended for novices!</i></p>
 
-<h3><a name="loading">Loading</a></h3>
+<h3 id="loading">Loading</h3>
 <hr>
 <p>
 The Teensy family have the PJRC bootloader installed and are programmed using <a href="http://www.pjrc.com/teensy/loader.html">PJRC's Teensy Loader</a>, available for all common OS.

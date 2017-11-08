@@ -21,7 +21,7 @@
 </ul>
 </div>
 
-<h3><a name="codes">Modified HID Code Set</a></h3>
+<h3 id="codes">Modified HID Code Set</h3>
 <hr>
 <p>
 Mainly HID page 7, with additions to support internal features, media keys, and power keys.<br/>
@@ -82,7 +82,7 @@ Media and Power codes are translated to the correct code page before being outpu
 <tr><td>LEFT_BRACE</td><td>0x2F</td><td>[ {</td></tr>
 <tr><td>RIGHT_BRACE</td><td>0x30</td><td>] }</td></tr>
 <tr><td>BACKSLASH</td><td>0x31</td><td>\ |  </td></tr>
-<tr><td>EUROPE_1</td><td>0x32</td><td>Europe 1</td></tr>
+<tr><td><i>EUROPE_1</i></td><td><i>0x32</i></td><td><i>Europe 1 (use BACKSLASH instead)</i></td></tr>
 <tr><td>SEMICOLON</td><td>0x33</td><td>; :</td></tr>
 <tr><td>QUOTE</td><td>0x34</td><td>' "</td></tr>
 <tr><td>BACK_QUOTE</td><td>0x35</td><td>` ~</td></tr>
@@ -133,7 +133,7 @@ Media and Power codes are translated to the correct code page before being outpu
 <tr><td>PAD_0</td><td>0x62</td><td>Keypad 0 Insert</td></tr>
 <tr><td>PAD_PERIOD</td><td>0x63</td><td>Keypad . Delete</td></tr>
 <tr><td>EUROPE_2</td><td>0x64</td><td>Europe 2</td></tr>
-<tr><td>APP</td><td>0x65</td><td>App</td></tr>
+<tr><td>APP</td><td>0x65</td><td>App (Windows Menu)</td></tr>
 <tr><td>POWER</td><td>0x66</td><td>Keyboard Power</td></tr>
 <tr class="caution"><td>PAD_EQUALS</td><td>0x67</td><td>Keypad =</td></tr>
 <tr><td>F13</td><td>0x68</td><td>F13</td></tr>
@@ -188,7 +188,7 @@ Media and Power codes are translated to the correct code page before being outpu
 <tr class="caution"><td>ALTERNATE_ERASE</td><td>0x99</td><td>Keyboard Alternate Erase</td></tr>
 <tr class="caution"><td>SYSREQ_ATTN</td><td>0x9A</td><td>Keyboard SysReq/Attention</td></tr>
 <tr class="caution"><td>CANCEL</td><td>0x9B</td><td>Keyboard Cancel</td></tr>
-<tr class="caution"><td>CLEAR</td><td>0x9C</td><td>Keyboard Clear</td></tr>
+<tr class="caution"><td><i>CLEAR</i></td><td><i>0x9C</i></td><td><i>Keyboard Clear (use DELETE instead)</i></td></tr>
 <tr class="caution"><td>PRIOR</td><td>0x9D</td><td>Keyboard Prior</td></tr>
 <tr class="caution"><td>RETURN</td><td>0x9E</td><td>Keyboard Return</td></tr>
 <tr class="caution"><td>SEPARATOR</td><td>0x9F</td><td>Keyboard Separator</td></tr>
@@ -241,11 +241,11 @@ Media and Power codes are translated to the correct code page before being outpu
 <tr><td>LCTRL</td><td>0xE0</td><td>Left Control</td></tr>
 <tr><td>LSHIFT</td><td>0xE1</td><td>Left Shift</td></tr>
 <tr><td>LALT</td><td>0xE2</td><td>Left Alt</td></tr>
-<tr><td>LGUI</td><td>0xE3</td><td>Left GUI</td></tr>
+<tr><td>LGUI</td><td>0xE3</td><td>Left GUI (Left Windows)</td></tr>
 <tr><td>RCTRL</td><td>0xE4</td><td>Right Control</td></tr>
 <tr><td>RSHIFT</td><td>0xE5</td><td>Right Shift</td></tr>
 <tr><td>RALT</td><td>0xE6</td><td>Right Alt</td></tr>
-<tr><td>RGUI</td><td>0xE7</td><td>Right GUI</td></tr>
+<tr><td>RGUI</td><td>0xE7</td><td>Right GUI (Right Windows)</td></tr>
 <tr><td>MEDIA_NEXT_TRACK</td><td>0xE8</td><td>Scan Next Track</td></tr>
 <tr><td>MEDIA_PREV_TRACK</td><td>0xE9</td><td>Scan Previous Track</td></tr>
 <tr><td>MEDIA_STOP</td><td>0xEA</td><td>Stop</td></tr>
@@ -274,7 +274,7 @@ Media and Power codes are translated to the correct code page before being outpu
 
 <p class="breakhere" />
 	
-<h3><a name="deprecated">Deprecated Code Names</a> <span class="versioninfo">v1.0+</span></h3>
+<h3 id="deprecated">Deprecated Code Names <a href=./history.html#v100><span class="versioninfo">v1.0+</span></a></h3>
 <hr>
 <p>
 The following code names are deprecated, and should no longer be used.<br/>
@@ -306,7 +306,7 @@ Replacements for these names have been added beginning 'EXTRA_'.<br/>
 <tr><td><i>FAKE_19</i></td><td><i>0xC2</i></td><td><i>Sys Req (AT 84-key)</i></td></tr>
 </table>
 
-<h3><a name="modifiers">Modifiers</a></h3>
+<h3 id="modifiers">Modifiers</h3>
 <hr>
 <p>
 For most uses, either a single key or a combination can be specified.<br/>
@@ -318,11 +318,11 @@ Depending on context, a combination might mean 'any' or 'all' of the specified m
 <tr><td>LCTRL</td><td>Left Control</td></tr>
 <tr><td>LSHIFT</td><td>Left Shift</td></tr>
 <tr><td>LALT</td><td>Left Alt</td></tr>
-<tr><td>LGUI</td><td>Left GUI</td></tr>
+<tr><td>LGUI</td><td>Left GUI (Left Windows)</td></tr>
 <tr><td>RCTRL</td><td>Right Control</td></tr>
 <tr><td>RSHIFT</td><td>Right Shift</td></tr>
 <tr><td>RALT</td><td>Right Alt</td></tr>
-<tr><td>RGUI</td><td>Right GUI</td></tr>
+<tr><td>RGUI</td><td>Right GUI (Right Windows)</td></tr>
 <tr><td>CTRL</td><td>Either/Both Control (shorthand for LCTRL RCTRL)</td></tr>
 <tr><td>SHIFT</td><td>Either/Both Shift (shorthand for LSHIFT RSHIFT)</td></tr>
 <tr><td>ALT</td><td>Either/Both Alt (shorthand for LALT RALT)</td></tr>

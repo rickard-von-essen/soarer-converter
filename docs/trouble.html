@@ -10,7 +10,7 @@
 <script type="text/javascript">navtabfn("Trouble")</script>
 <noscript><div id=jswarn class=\"navtabs\">These docs work best with Javascript enabled!</div></noscript>
 
-<h2><a name="Troubleshooting">Troubleshooting</a></h2>
+<h2 id="Troubleshooting">Troubleshooting</h2>
 <hr>
 
 <div id="contentslist">
@@ -23,7 +23,7 @@
 </div>
 
 
-<h3><a name="diag">Diagnostic Output</a></h3>
+<h3 id="diag">Diagnostic Output</h3>
 <hr>
 <p>The converter outputs some cryptic diagnostic information when in use -
 it's especially useful to see what is happening when it starts up.</p>
@@ -45,8 +45,8 @@ things are working correctly.</p>
 <tr><td>W</td><td>write error</td></tr>
 <tr><td>+</td><td>HID code output from first translation stage (for key-press)</td></tr>
 <tr><td>-</td><td>HID code output from first translation stage (for key-release)</td></tr>
-<tr><td>d</td><td>HID code output (for key-press) <span class="versioninfo">v1.03+</span></td></tr>
-<tr><td>u</td><td>HID code output (for key-release) <span class="versioninfo">v1.03+</span></td></tr>
+<tr><td>d</td><td>HID code output (for key-press) <a href=./history.html#v103><span class="versioninfo">v1.03+</span></a></td></tr>
+<tr><td>u</td><td>HID code output (for key-release) <a href=./history.html#v103><span class="versioninfo">v1.03+</span></a></td></tr>
 </table>
 </p>
 
@@ -71,21 +71,21 @@ One fairly common error is to read the socket pinout diagrams backwards -
 they are drawn looking at the <i>front</i> of the socket, not the back.</p>
 
 
-<h3><a name="sctrace">Simple Logic Analyzer</a></h3>
+<h3 id="sctrace">Simple Logic Analyzer</h3>
 <hr>
 <p>As a side-project, I've posted a <a href="http://deskthority.net/workshop-f7/simple-logic-analyzer-for-teensy-t4567.html">
 Simple Logic Analyzer</a> on Deskthority. This can help to diagnose wiring problems or incompatibilities quickly and simply,
 whereas before you might've had to resort to trial and error, risking damage to the Teensy in the process.</p>
 
 
-<h3><a name="kbid">Keyboard IDs</a></h3>
+<h3 id="kbid">Keyboard IDs</h3>
 <hr>
 <p>
 This section is mostly only relevant to terminal keyboards. The converter uses the ID to decide between using scan code set 3 for terminal keyboards, or extended scan code set 2 for 'regular' keyboards.
 <p>
 By using hid_listen, you can see what ID your keyboard has by looking at the two bytes read back after the get ID command (wF2 rFA).
 <p>
-The ID and scan code set selected are also printed in a more readable way: <span class="versioninfo">v0.996+</span>
+The ID and scan code set selected are also printed in a more readable way: <a href=./history.html#v0996><span class="versioninfo">v0.996+</span></a>
 </p>
 <pre><code>Keyboard ID: BFBF
 Code Set: 3</code></pre>
@@ -95,15 +95,16 @@ Terminal keyboards often have DIP switches on the back panel, or alternatively a
 If your terminal keyboard is not operating correctly, it might be because the wrong ID is set on the switches/jumpers. The first byte should <b><i>not </i></b>be AB.
 
 
-<h3><a name="issues">Known Issues</a></h3>
+<h3 id="issues">Known Issues</h3>
 <hr>
 <ul>
 <li><a href="http://geekhack.org/showwiki.php?title=Island:17458&p=362823&viewfull=1#post362823">Weirdo Monterey International Corp. FKF456K-104 AT keyboard with 3-way A,X,S switch on the back</a>.<br/>
 	Outputs a very asymmetric clock signal, which is too fast for the converter to track both edges of.<br/>
-	<b>Update</b>: this should be fixed now, but hasn't been verified. <span class="versioninfo">v1.1+</span><br/><br/>
+	<b>Update</b>: this should be fixed now, but hasn't been verified. <a href=./history.html#v110><span class="versioninfo">v1.1+</span></a><br/><br/>
 </li>
 <li><a href="http://geekhack.org/showwiki.php?title=Island:17458&p=563473&viewfull=1#post563473">Dell M6300 (BIOS rev A14) and Dell Inspiron 630m</a><br/>
-	Converter does not work with the BIOS on these machines at boot time. Presuming BIOS defect.
+	Converter does not work with the BIOS on these machines at boot time. Presuming BIOS defect.<br/>
+	<b>Update</b>: this might be fixed now, but hasn't been verified. <a href=./history.html#v103><span class="versioninfo">v1.03+</span></a> <a href=./history.html#v111><span class="versioninfo">v1.11+</span></a><br/><br/>
 </li>
 </ul>
 <hr>

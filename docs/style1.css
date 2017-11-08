@@ -16,6 +16,9 @@ h5 {font-size:100%; font-style:italic;}
 
 /*pre {font-size:125%;}*/
 
+a:link, a:visited { color:green; text-decoration: none }
+a:hover, a:active { color:#00C000; text-decoration: underline;  }
+
 th {background-color:#f8f8f8;}
 
 #td {  	margin:0px; 	padding:0px; }
@@ -102,10 +105,10 @@ div.content
 #contentslist { }
 #contentslist ul { list-style-image: url("images/bullet.png"); margin-left: 0; padding-left: 2em; }
 /*#contentslist ul li { line-height:130%; }*/
-#contentslist ul li a:link {text-decoration: none}
-#contentslist ul li a:visited {text-decoration: none}
-#contentslist ul li a:active {text-decoration: none}
-#contentslist ul li a:hover {text-decoration: underline; color: green;}
+//#contentslist ul li a:link {text-decoration: none}
+//#contentslist ul li a:visited {text-decoration: none}
+//#contentslist ul li a:active {text-decoration: none}
+//#contentslist ul li a:hover {text-decoration: underline; color: green;}
 
 ul.navtabs
 {
@@ -202,3 +205,69 @@ span.todo
 	}
 }
 
+table.thread-contents td
+{
+	padding-right: 5px;
+}
+
+div.search {
+	margin-bottom: 3px;
+	font-size: 1.1em;
+	height: 28px;
+	min-height: 28px;
+	zoom: 1;
+	position: relative;
+}
+
+div.search fieldset {
+	position: relative;
+	float: left;
+	border-width: 0;
+	margin: 0;
+	padding: 0;
+}
+
+input.search {
+	font-weight: normal;
+	vertical-align: middle;
+	padding: 2px 4px;
+	font-size: 12px;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	padding-right: 18px;
+	height: 1.91em;
+	line-height: 1.8em;
+	padding-top: 0;
+	padding-bottom: 0;
+	width: 250px;
+	//background-color: #fefefe;
+	color: #666;
+	//border: 1px solid #c0c0c0;
+	border: 1px solid #008000;
+	padding: 3px;
+	cursor: text;
+}
+
+input.search-submit {
+	width: 20px;
+	height: 18px;
+	background-position: 4px 3px;
+	background-image: url("./images/search.gif");
+	background-repeat: no-repeat;
+	background-color: #fff;
+	text-indent: -1000em;
+	color: transparent;
+	border: 0;
+	padding: 0;
+	position: absolute;
+	top: 2px;
+	right: 1px;
+}
+
+input.search-submit:hover {
+	background-position: 4px -13px;
+}
+
+td.usertd {
+	text-align:right;
+	//font-weight:bold;
+}

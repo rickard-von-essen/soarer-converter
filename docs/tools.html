@@ -10,7 +10,7 @@
 <script type="text/javascript">navtabfn("Tools")</script>
 <noscript><div id=jswarn class=\"navtabs\">These docs work best with Javascript enabled!</div></noscript>
 
-<h2>Command Line Tools <span class="versioninfo">v0.997+</span></h2>
+<h2>Command Line Tools <a href=./history.html#v0997><span class="versioninfo">v0.997+</span></a></h2>
 <hr>
 
 <div id="contentslist">
@@ -36,7 +36,7 @@
 </div>
 
 
-<h3><a name="intro">Introduction</a></h3>
+<h3 id="intro">Introduction</h3>
 <hr>
 <p>The main tools are <a href=#scas>scas</a> and <a href=#scwr>scwr</a>.</p>
 
@@ -55,7 +55,7 @@ device: complete
 <p>On Windows, you may find <a href=#scaswr>scaswr</a> more convenient. It simply combines the two steps.</p>
 
 
-<h3><a name="tools">Tools</a></h3>
+<h3 id="tools">Tools</h3>
 <hr>
 
 <p>
@@ -65,14 +65,14 @@ device: complete
 <tr><td><a href=#scdis>scdis</a></td><td>Dissassembles a config binary file to a config text file</td></tr>
 <tr><td><a href=#scwr>scwr</a></td><td>Writes a config binary file to the converter</td></tr>
 <tr><td><a href=#scrd>scrd</a></td><td>Reads a config binary file from the converter</td></tr>
-<tr><td><a href=#scboot>scboot</a></td><td>Causes the converter to jump to the bootloader  <span class="versioninfo">v1.0+</span></td></tr>
-<tr><td><a href=#scinfo>scinfo</a></td><td>Displays converter's version and memory information <span class="versioninfo">v1.0+</span></td></tr>
-<tr><td><a href=#scaswr>scaswr</a></td><td>Combination of scas and scwr (Windows only) <span class="versioninfo">v1.1+</span></td></tr>
+<tr><td><a href=#scboot>scboot</a></td><td>Causes the converter to jump to the bootloader  <a href=./history.html#v100><span class="versioninfo">v1.0+</span></a></td></tr>
+<tr><td><a href=#scinfo>scinfo</a></td><td>Displays converter's version and memory information <a href=./history.html#v100><span class="versioninfo">v1.0+</span></a></td></tr>
+<tr><td><a href=#scaswr>scaswr</a></td><td>Combination of scas and scwr (Windows only) <a href=./history.html#v110><span class="versioninfo">v1.1+</span></a></td></tr>
 </table>
 </p>
 
 
-<h4><a name=scas>scas</a></h4>
+<h4 id="scas">scas</h4>
 <hr>
 <p>Assembles one or more config text files to a config binary file.</p>
 
@@ -96,7 +96,7 @@ The first line number given is where the actual error is.</p>
 
 <p>Alternatively, check that included files assemble successfully on their own, before including into another config.</p>
 
-<h4><a name=scdis>scdis</a></h4>
+<h4 id="scdis">scdis</h4>
 <hr>
 <p>Dissassembles a config binary file to a config text file.</p>
 
@@ -107,7 +107,7 @@ The first line number given is where the actual error is.</p>
 
 <p>This tool might be useful to validate that your config assembles as you expected (it was very useful while I was writing scas).</p>
 
-<h4><a name=scwr>scwr</a></h4>
+<h4 id="scwr">scwr</h4>
 <hr>
 <p>Writes a config binary file to the converter.</p>
 <p>Usage:</p>
@@ -135,7 +135,7 @@ device: ok
 device: complete
 </code></pre>
 
-<h4><a name=scrd>scrd</a></h4>
+<h4 id="scrd">scrd</h4>
 <hr>
 <p>Reads a config binary file from the converter.</p>
 <p>Usage:</p>
@@ -158,7 +158,7 @@ scrd: complete
 scrd: writing file: 139 bytes: ok
 </code></pre>
 
-<h4><a name=scboot>scboot</a> <span class="versioninfo">v1.0+</span></h4>
+<h4 id="scboot">scboot <a href=./history.html#v100><span class="versioninfo">v1.0+</span></a></h4>
 <hr>
 <p>Causes the converter to jump to the bootloader.</p>
 <p>Usage:</p>
@@ -173,7 +173,7 @@ scboot: sending boot request: ok
 device: ok
 </code></pre>
 
-<h4><a name=scinfo>scinfo</a> <span class="versioninfo">v1.0+</span></h4>
+<h4 id="scinfo">scinfo <a href=./history.html#v100><span class="versioninfo">v1.0+</span></a></h4>
 <hr>
 <p>Displays converter's version and memory information.</p>
 <p>Usage:</p>
@@ -189,7 +189,7 @@ EEPROM Size: 1024 bytes
 EEPROM Free: 883 bytes
 </code></pre>
 
-<h4><a name=scaswr>scaswr.bat (Windows only)</a> <span class="versioninfo">v1.1+</span></h4>
+<h4 id="scaswr">scaswr.bat (Windows only) <a href=./history.html#v110><span class="versioninfo">v1.1+</span></a></h4>
 <hr>
 <p>A combination of scas and scwr, designed so you can simply drag'n'drop a config file onto it (or a shortcut to it).
 	It will assemble the text config and then write the resulting binary config to the converter, in a single step.</p>
@@ -199,25 +199,25 @@ EEPROM Free: 883 bytes
 </code></pre>
 
 
-<h3><a name="building">Building</a></h3>
+<h3 id="building">Building</h3>
 <hr>
 <p>Source code is provided, along with makefiles etc., to natively build on Windows, Linux and OS-X.<br/>
 Additionally, a mingw32 cross-compile can be used to build the Windows tools on Linux.</p>
 
 <p>To rebuild the tools, change directory to the sub-directory of build that's right for your OS, and type make.</p>
 	
-<h4><a name="windows">Windows</a></h4>
+<h4 id="windows">Windows</h4>
 <hr>
 <p>The tools are built for Windows using MS Visual Studio 2003. Porting to later versions should be trivial.</p>
 
 <p>scwr, scrd, scboot and scinfo rely on a small library of <a href="http://www.pjrc.com/teensy/rawhid.html">RAWHID routines from PJRC</a>.<br/>
 For Windows, this library was compiled to a DLL using the <a href="http://download.microsoft.com/download/9/0/f/90f019ac-8243-48d3-91cf-81fc4093ecfd/1830_usa_ddk.iso">Microsoft DDK</a>.</p>
 
-<h4><a name="linux">Linux</a> <span class="versioninfo">v1.0+</span></h4>
+<h4 id="linux">Linux <a href=./history.html#v100><span class="versioninfo">v1.0+</span></a></h4>
 <hr>
 <p>The tools are built for Linux using gcc etc.</p>
 
-<h4><a name="mac">Mac OS-X</a> <span class="versioninfo">v1.0+</span></h4>
+<h4 id="mac">Mac OS-X <a href=./history.html#v100><span class="versioninfo">v1.0+</span></a></h4>
 <hr>
 <p>The tools are built for Mac OS-X on Snow Leopard using Xcode 3.2.6 and the version 10.6 SDK.</p>
 

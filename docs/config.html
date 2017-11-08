@@ -11,12 +11,13 @@
 <noscript><div id=jswarn class=\"navtabs\">These docs work best with Javascript enabled!</div></noscript>
 
 
-<h2>Config <span class="versioninfo">v0.997+</span></h2>
+<h2>Config <a href=./history.html#v0997><span class="versioninfo">v0.997+</span></a></h2>
 <hr>
 
 <div id="contentslist">
 <ul>
 	<li><a href="#overview">Overview</a></li>
+	<li><a href="#initial">Initial Translation</a></li>
 	<li><a href="#commands">Command Reference</a></li>
 	<ul>
 		<li><a href="#force">force</a></li>
@@ -36,24 +37,55 @@
 </div>
 
 
-<h3><a name="overview">Overview</a></h3>
+<h3 id="overview">Overview</h3>
 <hr>
 
 <p>This diagram gives an simplified view of the processing stages inside the converter:<br>
-	<img src="images/dataflow.png"/></p>
-<p>The first stage is a fixed translation into HID codes, that cannot be modified by the config. The goal of this stage is
-	to map into a reasonable base set of codes for further remapping, and to try and ensure that each key on the keyboard
-	results in a unique HID code after this stage.</p>
-<p>The second stage combines remapping and layer functions, since layers are simply alternate remappings.</p>
-<p>The third stage is macro expansion.</p>
-<p>The final stage separates out the internal commands such as SELECTn and BOOT etc. and routes them appropriately, and
-	also converts the HIDX codes back into standard HID codes for the keyboard, media, and power code pages.</p>
+	<img src="images/dataflow.png" border="0" usemap="#map1"/>
+	<map name="map1" id="map1">
+	<area href="#initial" alt="Initial Translation" shape="rect" coords="90,82,170,119"/>
+	<area href="codes.html" alt="Codes" shape="rect" coords="186,190,221,207"/>
+	<area href="#layerblock" alt="layerblock" shape="rect" coords="240,228,277,246"/>
+	<area href="#layerblock" alt="layerblock" shape="rect" coords="241,275,319,292"/>
+	<area href="#layerblock" alt="layerblock" shape="rect" coords="336,228,364,246"/>
+	<area href="#remapblock" alt="remapblock" shape="rect" coords="255,178,304,194"/>
+	<area href="#macroblock" alt="macroblock" shape="rect" coords="429,178,480,194"/>
+	<area href="#ifselect" alt="ifselect" shape="rect" coords="421,69,488,104"/>
+	<area href="#ifselect" alt="ifselect" shape="rect" coords="489,129,552,145"/>
+	<area href="codes.html" alt="Codes" shape="rect" coords="576,190,604,206"/>
+	</map>
+</p>
+<p>The first stage is a fixed <a href="#initial">initial translation</a> into HID codes, that cannot be modified by the config.
+	The goal of this stage is to map into a reasonable base set of codes for further remapping, and to try and ensure that each
+	key on the keyboard results in a unique HID code after this stage.</p>
+<p>The second stage combines <a href="#remapblock">remapping</a> and <a href="#layerblock">layer</a> functions, since layers are simply alternate remappings.</p>
+<p>The third stage is <a href="#macroblock">macro</a> expansion.</p>
+<p>The final stage separates out the internal commands such as <a href="#ifselect">SELECTn</a> and <a href="#macro_commands">BOOT</a> etc. and routes them appropriately, and
+	also converts the <a href="codes.html">HIDX</a> codes back into standard HID codes for the keyboard, media, and power code pages.</p>
 
 
-<h3><a name="commands">Command Reference</a></h3>
+<h3 id="initial">Initial Translation</h3>
+<hr>
+<p>For most keys it's fairly obvious which codes are produced after the fixed initial translation.
+However, for some keys on a 122-key keyboard, and the normally unused extra keys on various keyboards,
+the codes don't follow an obvious pattern.</p>
+<p>To find out which code a key is producing after the fixed initial translation,
+you can use <a href="http://www.pjrc.com/teensy/hid_listen.html">hid_listen</a>
+to examine the <a href="trouble.html#diag">Diagnostic Output</a>.
+</p>
+<p>When you press a key, a set of codes is sent by the converter to hid_listen.
+For example, pressing the centre key in the 122-key's cursor block results in:
+</p>
+<pre><code>r62 +93 d93 rE2 -93 u93
+</code></pre>
+<p>Note the code prefixed by '+', then look it up in the <a href="codes.html">HID code list</a>.
+For the example, looking up 93 reveals that the identifier to use for remapping or triggering a macro would be LANG_4.
+</p>
+
+<h3 id="commands">Command Reference</h3>
 <hr>
 
-<h4><a name=force></a>force</h4>
+<h4 id="force">force</h4>
 <hr>
 <p>The <code>force</code> command disables the auto-detection of keyboard type. It is only very rarely needed!</p>
 <pre><code>force {set1|set2|set3|set2ext}
@@ -62,7 +94,7 @@
 <pre><code>force set2
 </code></pre>
 
-<h4><a name=include></a>include</h4>
+<h4 id="include">include</h4>
 <hr>
 <p>The <code>include</code> command processes another file, exactly as if it was copy-pasted to where the include command is.</p>
 <pre><code>include &lt;file_name&gt;
@@ -72,7 +104,7 @@
 <pre><code>include "colemak.sc"
 </code></pre>
 
-<h4><a name=ifselect></a>ifselect</h4>
+<h4 id="ifselect">ifselect</h4>
 <hr>
 <p>
 Groups of settings can be toggled by using the <code>ifselect</code> command and defining remaps or macros that output the SELECT_0 to SELECT_7 codes.</p>
@@ -98,7 +130,7 @@ remapblock
 endblock
 </code></pre>
 
-<h4><a name=ifset></a>ifset</h4>
+<h4 id="ifset">ifset</h4>
 <hr>
 <p>Blocks following the <code>ifset</code> command are only applied if using one of the specified sets.</p>
 <pre><code>ifset [set1] [set2] [set3] [set2ext] [any]
@@ -107,7 +139,7 @@ endblock
 <pre><code>ifset set1 set2
 </code></pre>
 
-<h4><a name=ifkeyboard></a>ifkeyboard</h4>
+<h4 id="ifkeyboard">ifkeyboard</h4>
 <hr>
 <p>Blocks following the <code>ifkeyboard</code> command are only applied if the keyboard has the specified ID.</br>
 <pre><code>ifkeyboard {&lt;keyboard_id&gt; | any}
@@ -118,7 +150,7 @@ endblock
 <pre><code>ifkeyboard BABA
 </code></pre>
 
-<h4><a name=layerblock></a>layerblock</h4>
+<h4 id="layerblock">layerblock</h4>
 <hr>
 <p>Layerblocks define combinations of function keys to access different layers.</p>
 <pre><code>layerblock
@@ -140,7 +172,7 @@ endblock
 endblock
 </code></pre>
 
-<h4><a name=remapblock></a>remapblock</h4>
+<h4 id="remapblock">remapblock</h4>
 <hr>
 <p>Remapblocks define remappings either for the base layer, or for the specified
 layer if a <code>layer</code> command is given inside the block.</p>
@@ -159,7 +191,7 @@ remapblock
 endblock
 </code></pre>
 
-<h4><a name=macroblock></a>macroblock</h4>
+<h4 id="macroblock">macroblock</h4>
 <hr>
 <p>Macroblocks define one or more macros. Macros are triggered by a single HID
 key with any combination of metas, and can have command blocks that execute
@@ -193,7 +225,7 @@ endblock
 endblock
 </code></pre>
 
-<h5><a name="macro_commands">Macro Commands</a></h5>
+<h5 id="macro_commands">Macro Commands</h5>
 
 <table>
 <tr><th>Command</th><th>Description</th></tr>
@@ -209,11 +241,11 @@ endblock
 <tr><td>POP_ALL_META</td><td>Restore metas from the time of the first PUSH_META</td></tr>
 <tr><td>DELAY &lt;delay_in_ms&gt;</td><td>Delay by the specified number of milliseconds</td></tr>
 <tr><td>CLEAR_ALL</td><td>(internal use e.g. when buffer overrun is received)</td></tr>
-<tr><td>BOOT</td><td>Cause the converter to jump to the bootloader  <span class="versioninfo">v1.0+</span></td></tr>
+<tr><td>BOOT</td><td>Cause the converter to jump to the bootloader  <a href=./history.html#v100><span class="versioninfo">v1.0+</span></a></td></tr>
 <tr><td>PUSH_META &lt;cmd&gt; &lt;value&gt;</td><td>Save metas for later. Combines with other commands</td></tr>
 </table>
 
-<h5><a name="triggers">Macro trigger matching</a></h5>
+<h5 id="triggers">Macro trigger matching</h5>
 
 <p>
 Macros are triggered only when the state matches for all of the the specified metas.<br/>
@@ -251,8 +283,8 @@ endblock
   endmacro
 endblock
 </code></pre>
-
-<p>See the <a href="codes.html">HID code list</a> for HID and META values.</p>
+	
+<p>See the <a href="codes.html">HID code list</a> for <a href="codes.html#codes">HID</a> and <a href="codes.html#modifiers">META</a> values.</p>
 
 <hr>
 </body></html>
